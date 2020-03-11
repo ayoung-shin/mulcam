@@ -23,11 +23,22 @@ getAnalResult = memoise(function(broadcast, year){
   cast_text = str_replace_all(cast_text, "[\u4E00-\u9FD5o]", " ") # 한자 제거
   cast_text = str_replace_all(cast_text, "[[:space:]]+", " ")
   
-  tmp = lapply(cast_text, function(x) extractNoun(x))
+  # KoNLP 사용
+  # tmp = lapply(cast_text, function(x) extractNoun(x))
+  # dtm.k2 = DocumentTermMatrix(
+  #   VCorpus(VectorSource(tmp)),
+  #   control = list(weighting = function(x) weightTfIdf(x, normalize = FALSE))
+  #   )
+  
+  # KoNLP 제외
+  cast_corpus = VCorpus(VectorSource(cast_text))
+  cast_corpus = tm_map(cast_corpus, stemDocument)
+
   dtm.k2 = DocumentTermMatrix(
-    VCorpus(VectorSource(tmp)),
+    cast_corpus,
     control = list(weighting = function(x) weightTfIdf(x, normalize = FALSE))
     )
+
   
   dtm.k2.freq = findMostFreqTerms(dtm.k2)
   names(dtm.k2.freq) = NULL

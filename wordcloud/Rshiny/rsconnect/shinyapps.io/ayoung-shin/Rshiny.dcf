@@ -1,0 +1,12 @@
+name: Rshiny
+title: Rshiny
+username:
+account: ayoung-shin
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1932404
+bundleId: 2869795
+url: https://ayoung-shin.shinyapps.io/Rshiny/
+when: 1583894388.25944
+asMultiple: FALSE
+asStatic: FALSE

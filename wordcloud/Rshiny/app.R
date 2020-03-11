@@ -7,7 +7,7 @@ library(stringr)
 library(rJava)
 library(SnowballC)
 library(wordcloud)
-library(KoNLP)
+# library(KoNLP)
 
 source("news/code_for_shiny.R")
 
