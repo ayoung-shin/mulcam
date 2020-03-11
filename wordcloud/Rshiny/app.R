@@ -9,7 +9,7 @@ library(SnowballC)
 library(wordcloud)
 library(KoNLP)
 
-source("code_for_shiny.R")
+source("news/code_for_shiny.R")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
